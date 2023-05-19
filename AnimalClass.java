@@ -7,8 +7,14 @@ public class AnimalClass {
     public boolean Estado;
     public int Caloria;
     public int Forca;
+    
+    public static void main(String[] args) {
+        
+    }
+    
+    
 
-    public void nascer(String Nome, String Classe,String Familia,int Idade, boolean Estado, int Caloria, int Forca) {
+    public AnimalClass(String Nome, String Classe,String Familia,int Idade, boolean Estado, int Caloria, int Forca) {
         this.Nome = Nome;
         this.Classe = Classe;
         this.Familia = Familia;
@@ -19,10 +25,10 @@ public class AnimalClass {
         System.out.println("o " + Nome + " nasceu");
     }
 
-    public String Morrer() {
+    public void Morrer() {
         this.Estado = false;
         this.Forca = 0;
-        return this.Nome + " tá Morto";
+        System.out.println(this.Nome + " tá Morto");
     }
     public void Comer() {
        if (this.Estado & (this.Forca>=10)){
