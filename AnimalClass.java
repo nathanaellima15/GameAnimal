@@ -12,23 +12,44 @@ public class AnimalClass {
         this.Nome = Nome;
         this.Classe = Classe;
         this.Familia = Familia;
-        this.Idade = Idade;
-        this.Estado = Estado;
-        this.Caloria = Caloria;
-        this.Forca = Forca;
+        this.Idade = 0;
+        this.Estado = true;
+        this.Caloria = 10;
+        this.Forca = 10;
         System.out.println("o " + Nome + " nasceu");
     }
 
-    public void morrer() {
-        
+    public String morrer() {
+        this.Estado = false;
+        this.Forca = 0;
+        return "Morto";
     }
     public void Comer() {
-        
+       if (Estado & (Forca>=10)){
+          Caloria = Caloria + 20;
+          Forca = Forca -10;
+        } 
     }
     public void Correr() {
+        if (Estado & (Forca>=10) & (Caloria>10)){
+           Caloria = Caloria -10;
+           Forca = Forca -10;
+        }else if(!(Estado)){
+            System.out.println("animal morto não corre");
+        }else if (Caloria<10){
+            System.out.println("animal magro, tem que comer");
+        }else{
+            
+        }
         
     }
     public void Dormir() {
+        if (Estado){
+            Caloria = Caloria-5;
+            Forca = Forca +20;
+        }else{
+            System.out.println("Animal morto, já está dormindo eternamente");
+        }
         
     }
 }
