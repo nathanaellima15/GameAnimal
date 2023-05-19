@@ -19,36 +19,42 @@ public class AnimalClass {
         System.out.println("o " + Nome + " nasceu");
     }
 
-    public String morrer() {
+    public String Morrer() {
         this.Estado = false;
         this.Forca = 0;
-        return "Morto";
+        return this.Nome + " tá Morto";
     }
     public void Comer() {
-       if (Estado & (Forca>=10)){
-          Caloria = Caloria + 20;
-          Forca = Forca -10;
-        } 
+       if (this.Estado & (this.Forca>=10)){
+          this.Caloria += 20;
+          this.Forca -= 10;
+        } else if(!(this.Estado)){
+            System.out.println("morto não come");
+        } else {
+            System.out.println("animal fraco tem que dormir");
+        }
     }
     public void Correr() {
-        if (Estado & (Forca>=10) & (Caloria>10)){
-           Caloria = Caloria -10;
-           Forca = Forca -10;
-        }else if(!(Estado)){
+        if (this.Estado & (this.Forca>=10) & (this.Caloria>10)){
+           this.Caloria -= 10;
+           this.Forca -= 10;
+        }else if(!(this.Estado)){
             System.out.println("animal morto não corre");
-        }else if (Caloria<10){
+        }else if (this.Caloria<10){
             System.out.println("animal magro, tem que comer");
-        }else{
-            
+        }else {
+            System.out.println("exausto, precisa dormir");
         }
         
     }
     public void Dormir() {
-        if (Estado){
-            Caloria = Caloria-5;
-            Forca = Forca +20;
-        }else{
-            System.out.println("Animal morto, já está dormindo eternamente");
+        if ((this.Estado) & (this.Caloria>=5)){
+            this.Caloria -= 5;
+            this.Forca += 20;
+        }else if (!(this.Estado)){
+            System.out.println(this.Nome + " morto, já está dormindo eternamente");
+        }else {
+            System.out.println("coma antes de dormir");
         }
         
     }
